@@ -6,16 +6,20 @@
 #calendar{
   margin-left: auto;
   margin-right: auto;
-  width: 320px;
+  width: 480px;
   font-family: 'Lato', sans-serif;
 }
 #calendar_weekdays div{
   display:inline-block;
   vertical-align:top;
+  color: rgb(39, 174, 96) !important;
+  width: 65px !important;
+  height: 68.5714px !important;
+  line-height: 68.5714px !important;
 }
 #calendar_content, #calendar_weekdays, #calendar_header{
   position: relative;
-  width: 320px;
+  width: 480px;
   overflow: hidden;
   float: left;
   z-index: 10;
@@ -35,12 +39,19 @@
 }
 #calendar_content div{
   float: left;
+  width: 68.5714px;
+  height: 68.5714px;
+  line-height: 68.5714px;
+  cursor: pointer;
 }
 #calendar_content div:hover{
   background-color: #F8F8F8;
 }
 #calendar_content div.blank{
   background-color: #E8E8E8;
+  width: 68.5714px;
+  height: 68.5714px;
+  line-height: 68.5714px;
 }
 #calendar_header, #calendar_content div.today{
   zoom: 1;
@@ -54,13 +65,14 @@
   width: 100%;
   height: 90px;
   text-align: center;
-  background-color: #FF6860;
+  background-color: rgb(39, 174, 96);
   padding: 18px 0;
   -webkit-border-radius: 12px 12px 0px 0px;
   -moz-border-radius: 12px 12px 0px 0px;
   border-radius: 12px 12px 0px 0px;
 }
 #calendar_header h1{
+  margin-top: 0.8em;
   font-size: 1.5em;
   color: #FFFFFF;
   float:left;
@@ -71,6 +83,8 @@
   float: left;
   width:15%;
   border-radius: 50%;
+  line-height: 68.5714px !important;
+  cursor: pointer;
 }
 
 .booked {

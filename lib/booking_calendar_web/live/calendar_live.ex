@@ -5,23 +5,23 @@ defmodule BookingCalendarWeb.CalendarLive do
 
   def render(assigns) do
     ~L"""
-    <div id="calendar" style="width: 480px;">
-      <div id="calendar_header" style="background-color: rgb(39, 174, 96)">
-        <i phx-click="previous_month" class="icon-chevron fas fa-chevron-left" style="line-height: 68.5714px;"></i>
-        <h1 style="margin-top: 0.8em"><%= Timex.format!(@current_date, "{Mfull} {YYYY}") %></h1>
-        <i phx-click="next_month" class="icon-chevron fas fa-chevron-right" style="line-height: 68.5714px;"></i>
+    <div id="calendar">
+      <div id="calendar_header">
+        <i phx-click="previous_month" class="icon-chevron fas fa-chevron-left"></i>
+        <h1><%= Timex.format!(@current_date, "{Mfull} {YYYY}") %></h1>
+        <i phx-click="next_month" class="icon-chevron fas fa-chevron-right"></i>
       </div>
-      <div id="calendar_weekdays" style="width: 480px;">
+      <div id="calendar_weekdays">
         <%= for week_day <- Timex.Translator.get_weekdays_abbreviated("en") |> Map.values do %>
-          <div style="color: rgb(39, 174, 96); width: 65px; height: 68.5714px; line-height: 68.5714px;"><%= week_day %></div>
+          <div><%= week_day %></div>
         <% end %>
       </div>
-      <div id="calendar_content" style="width: 480px;">
+      <div id="calendar_content">
         <%= for i <- 1..(@current_date |> Date.day_of_week), i > 1 do %>
-          <div class="blank" style="width: 68.5714px; height: 68.5714px; line-height: 68.5714px;"></div>
+          <div class="blank"></div>
         <% end %>
         <%= for current_day <- @days do %>
-          <div class="<%= if current_day.booked, do: "booked" %>" phx-click="switch_day" phx-value="<%= current_day.date %>" style="width: 68.5714px; height: 68.5714px; line-height: 68.5714px;">
+          <div class="<%= if current_day.booked, do: "booked" %>" phx-click="switch_day" phx-value="<%= current_day.date %>">
             <%= current_day.date.day %>
           </div>
         <% end %>
